@@ -4,7 +4,7 @@ sleep 2
 cd /home/container
 
 if [ "${GAME_AUTOUPDATE}" == "1" ]; then
-    ./steam/steamcmd.sh +@sSteamCmdForcePlatformBitness 64 +login anonymous +force_install_dir /home/container +app_update 1110390 +quit
+    ./steam/steamcmd.sh +@sSteamCmdForcePlatformBitness 64 +force_install_dir /home/container +login anonymous +app_update 1110390 +quit
 fi
 
 if [ "${FRAMEWORK}" == "vanilla" ]; then
@@ -67,7 +67,7 @@ cp -f steam/linux64/steamclient.so Unturned_Headless_Data/Plugins/x86_64/steamcl
 # check if REPOSITORY_ENABLED is enabled
 if [ "${REPOSITORY_ENABLED}" == "1" ]; then
     # run repo-sync.sh that is in the same place as entrypoint.sh which is root
-    /repo-sync.sh
+    bash /repo-sync.sh
 fi
 
 ulimit -n 2048

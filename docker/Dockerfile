@@ -29,7 +29,9 @@ ENV HOME=/home/container
 
 WORKDIR /home/container
 
-COPY ./entrypoint.sh /entrypoint.sh
-COPY ./repo-sync.sh /repo-sync.sh
+COPY --chown=container:container ./entrypoint.sh /entrypoint.sh
+COPY --chown=container:container ./repo-sync.sh /repo-sync.sh
+
+RUN chmod 755 /entrypoint.sh /repo-sync.sh
 
 CMD ["/bin/bash", "/entrypoint.sh"]

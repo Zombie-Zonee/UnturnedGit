@@ -22,7 +22,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "apt update\r\napt -y --no-install-recommends install curl lib32gcc-s1 ca-certificates\r\ncd \/tmp\r\ncurl -sSL -o steamcmd.tar.gz https:\/\/steamcdn-a.akamaihd.net\/client\/installer\/steamcmd_linux.tar.gz\r\nmkdir -p \/mnt\/server\/steam\r\ntar -xzvf steamcmd.tar.gz -C \/mnt\/server\/steam\r\ncd \/mnt\/server\/steam\r\nchown -R root:root \/mnt\r\nexport HOME=\/mnt\/server\r\n.\/steamcmd.sh +@sSteamCmdForcePlatformBitness 64 +login anonymous +force_install_dir \/mnt\/server +app_update 1110390 validate +quit\r\nmkdir -p \/mnt\/server\/Servers\/unturned\/Server\r\nmkdir \/mnt\/server\/linux64\r\ncp \/mnt\/server\/steam\/linux64\/* \/mnt\/server\/linux64\r\nmkdir \/mnt\/server\/Unturned_Headless_Data\/Plugins\/x86_64\/",
+            "script": "apt update\r\napt -y --no-install-recommends install curl lib32gcc-s1 ca-certificates\r\ncd \/tmp\r\ncurl -sSL -o steamcmd.tar.gz https:\/\/steamcdn-a.akamaihd.net\/client\/installer\/steamcmd_linux.tar.gz\r\nmkdir -p \/mnt\/server\/steam\r\ntar -xzvf steamcmd.tar.gz -C \/mnt\/server\/steam\r\ncd \/mnt\/server\/steam\r\nchown -R root:root \/mnt\r\nexport HOME=\/mnt\/server\r\n.\/steamcmd.sh +@sSteamCmdForcePlatformBitness 64 +force_install_dir \/mnt\/server +login anonymous +app_update 1110390 validate +quit\r\nmkdir -p \/mnt\/server\/Servers\/unturned\/Server\r\nmkdir \/mnt\/server\/linux64\r\ncp \/mnt\/server\/steam\/linux64\/* \/mnt\/server\/linux64\r\nmkdir \/mnt\/server\/Unturned_Headless_Data\/Plugins\/x86_64\/",
             "container": "ubuntu:26.04",
             "entrypoint": "bash"
         }
